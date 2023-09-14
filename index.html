@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ÇEREZLERİ KABUL ET</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+<div id="cerezdivi" style="visibility: hidden;">
+    <img class="cookie" src="images/cookie.png">
+
+    <h3>Size daha iyi hizmet etmek için web sitemizde cookies ve kişisel verilerinizi saklıyoruz. 
+    <a class="cerez" href="#">Çerez Sözleşmesi</a></h3>
+    
+    <button id="acceptButton">Tüm Çerezleri Kabul Et</button>
+
+    <button>Hepsini Reddet</button>
+
+</div>
+
+</body>
+
+<script>
+    
+var isCookiesAccepted = localStorage.getItem("cookiesAccepted");
+
+if (!isCookiesAccepted) {
+    setTimeout(showCookiePopup, 2000);
+}
+
+function showCookiePopup() {
+    document.getElementById("cerezdivi").style.visibility = "visible";
+}
+
+document.getElementById("acceptButton").addEventListener("click", function() {
+    localStorage.setItem("cookiesAccepted", "true");
+    document.getElementById("cerezdivi").style.visibility = "hidden";
+});
+</script>
+
+
+</html>
